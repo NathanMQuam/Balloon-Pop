@@ -1,14 +1,104 @@
-body {
-    background-color: wheat;
+:root {
+    --primary: hsl(294, 96%, 78%);
+    --bg: hsl(0, 10%, 86%);
+    --text-color: hsl(0, 0%, 9%);
+    --light: hsl(0, 0%, 96%);
+    --dark: hsl(0, 0%, 14%);
+    --shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+    --corners: 4px;
+    --primary-dark: hsl(294, 55%, 50%);
+    --primary-light: hsl(294, 100%, 85%);
 }
+
+
+
+body {
+    background-color: var(--bg);
+    font-family: 'Permanent Marker', cursive;
+    font-size: 16pt;
+    color: var(--text-color);
+}
+
+header {
+    margin: 2em 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    background-color: var(--primary);
+    color: var(--light);
+    border: 1px solid var(--primary-dark);
+    border-radius: var(--corners);
+    box-shadow: var(--shadow);
+    text-decoration: underline;
+    text-transform: uppercase;
+    padding: 0.5em;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--primary-light)
+}
+
+form {
+    margin: 0;
+}
+
+input {
+    background-color: transparent;
+    border:none;
+    border-bottom: 1px solid var(--text-color);
+    padding: 0.5em;
+    font-size: 14pt;
+}
+
+
 
 .balloon {
     height: 120px;
     width: 100px;
     background-color: blue;
     border-radius: 50%;
+    transition: all .2s ease;
+}
+
+.container {
+    width: 60%;
+    margin: auto;
+}
+
+.shadow {
+    filter: drop-shadow(var(--shadow));
+}
+
+.card {
+    background-color: var(--light);
+    padding: 1em;
+    border-radius: var(--corners);
+}
+
+.bg-dark {
+    background-color: var(--dark);
+}
+
+.text-light {
+    color: var(--light);
+}
+
+
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex.space-between {
+    justify-content: space-between;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }

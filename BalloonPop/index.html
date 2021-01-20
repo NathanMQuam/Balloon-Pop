@@ -25,18 +25,27 @@
       </div>
     </header>
 
-    <form onsubmit="setPlayer(event)" id="playerForm">
+    <main class="card container shadow">
+    <form onsubmit="setPlayer(event)" id="playerForm" class="d-flex space-between">
       <div>
-        <label for="name">Player Name: </label>
+        <label for="name">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            <span>Player Name: </span>
+        </label>
         <input type="text" name="playerName" required />
       </div>
       <button type="submit">Ok</button>
     </form>
 
-    <section id="game" class="game hidden">
-        <div>
-            <button onClick="changePlayer()">Change Player</button>
+    <!-- TODO Re-add hidden class -->
+
+    <section id="game" class="game">
+        <div class="card container shadow bg-dark text-light">
+            <span id="player-name"></span>
         </div>
+      <div>
+        <button onClick="changePlayer()">Change Player</button>
+      </div>
       <div>
         <button id="start-button" onclick="startGame()">Start Game</button>
       </div>
@@ -60,6 +69,7 @@
 
       <div id="balloon" class="balloon"></div>
     </section>
+    </main>
 
     <script src="main.js"></script>
   </body>
