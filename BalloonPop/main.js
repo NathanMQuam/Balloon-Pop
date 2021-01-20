@@ -14,6 +14,7 @@ let currentPopCount = 0;
 let gameLength = 5000;
 let clockId = 0;
 let timeRemaining = 0;
+let currentPlayer = {};
 
 
 
@@ -109,6 +110,7 @@ let players = [
         topScore: 1
     }
 ];
+loadPlayers();
 
 function setPlayer (event) {
     event.preventDefault();
@@ -116,10 +118,14 @@ function setPlayer (event) {
 
     let playerName = form.playerName.value;
 
-    let currentPlayer = players.find( player => player.name == playerName );
+    currentPlayer = players.find( player => player.name == playerName );
 
     if ( !currentPlayer ) {
         currentPlayer = { name: playerName, topScore: 0 };
+        players.push( currentPlayer );
+        //console.log( "Player not found" );
+        
+        savePlayers();
     }
 
     console.log( currentPlayer );
@@ -129,6 +135,8 @@ function setPlayer (event) {
 
 function savePlayers () {
     window.localStorage.setItem( "players", JSON.stringify( players ) );
+    //console.log(JSON.stringify( players ));
+    //console.log( "added players to localstorage" );
 }
 
 function loadPlayers () {
