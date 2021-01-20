@@ -75,7 +75,7 @@ function draw () {
     
     clickCountElem.innerText = clickCount.toString();
     popCountElem.innerText = currentPopCount.toString();
-    highPopCountElem.innerText = highestPopCount.toString();
+    highPopCountElem.innerText = currentPlayer.topScore.toString();
 }
 
 
@@ -90,8 +90,9 @@ function stopGame () {
     height = 140;
     width = 100;
 
-    if ( currentPopCount > highestPopCount ) {
-        highestPopCount = currentPopCount;
+    if ( currentPopCount > currentPlayer.topScore ) {
+        currentPlayer.topScore = currentPopCount;
+        savePlayers();
     }
     
     currentPopCount = 0;
@@ -131,6 +132,7 @@ function setPlayer (event) {
     console.log( currentPlayer );
 
     form.reset();
+    draw();
 }
 
 function savePlayers () {
