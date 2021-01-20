@@ -26,49 +26,60 @@
     </header>
 
     <main class="card container shadow">
-    <form onsubmit="setPlayer(event)" id="playerForm" class="d-flex space-between">
-      <div>
-        <label for="name">
+      <form
+        onsubmit="setPlayer(event)"
+        id="playerForm"
+        class="d-flex space-between"
+      >
+        <div>
+          <label for="name">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
             <span>Player Name: </span>
-        </label>
-        <input type="text" name="playerName" required />
-      </div>
-      <button type="submit">Ok</button>
-    </form>
-
-    <!-- TODO Re-add hidden class -->
-
-    <section id="game" class="game">
-        <div class="card container shadow bg-dark text-light">
-            <span id="player-name"></span>
+          </label>
+          <input type="text" name="playerName" required />
         </div>
-      <div>
-        <button onClick="changePlayer()">Change Player</button>
-      </div>
-      <div>
-        <button id="start-button" onclick="startGame()">Start Game</button>
-      </div>
+        <button type="submit">Ok</button>
+      </form>
 
-      <button id="inflate-button" onclick="inflate()" disabled="true">
-        Inflate <span id="click-count">0</span>
-      </button>
+      <!-- TODO Re-add hidden class -->
 
-      <div>
-        <span>Balloons Popped: </span>
-        <span id="pop-count">0</span>
-      </div>
-      <div>
-        <span>Top Popped: </span>
-        <span id="high-pop-count">0</span>
-      </div>
-      <div>
-        <span>Time Remaining: </span>
-        <span id="countdown">0</span>
-      </div>
+      <section id="game" class="game">
+        <div class="card container shadow bg-dark text-light">
+          <div class="d-flex space-between">
+            <div>
+              <i class="fa fa-user-circle" aria-hidden="true"></i>
+              <span id="player-name"></span>
+            </div>
 
-      <div id="balloon" class="balloon"></div>
-    </section>
+            <div>
+              <span>Top Popped: </span>
+              <span id="high-pop-count">0</span>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <button onClick="changePlayer()">Change Player</button>
+        </div>
+        <div>
+          <button id="start-button" onclick="startGame()">Start Game</button>
+        </div>
+
+        <button id="inflate-button" onclick="inflate()" disabled="true">
+          Inflate <span id="click-count">0</span>
+        </button>
+
+        <div>
+          <span>Balloons Popped: </span>
+          <span id="pop-count">0</span>
+        </div>
+        <div>
+          <span>Time Remaining: </span>
+          <span id="countdown">0</span>
+        </div>
+
+        <div id="balloon" class="balloon"></div>
+      </section>
     </main>
 
     <script src="main.js"></script>
