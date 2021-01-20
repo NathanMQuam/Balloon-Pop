@@ -35,8 +35,6 @@ function startClock () {
 
 function stopClock () {
     clearInterval( clockId );
-    // Not sure why, but my displayed "time remaining" never draws 0 unless I drawClock() here
-    drawClock();
 }
 
 function drawClock () {
@@ -105,6 +103,8 @@ function stopGame () {
 
 
 
+//#region SAVING AND LOADER PLAYER DATA
+
 let players = [
     {
         name: "Jake",
@@ -132,7 +132,14 @@ function setPlayer (event) {
     console.log( currentPlayer );
 
     form.reset();
+    document.getElementById( "game" ).classList.remove( "hidden" );
+    form.classList.add( "hidden" );
     draw();
+}
+
+function changePlayer () {
+    document.getElementById( "playerForm" ).classList.remove( "hidden" );
+    document.getElementById( "game" ).classList.add( "hidden" );
 }
 
 function savePlayers () {
@@ -148,3 +155,4 @@ function loadPlayers () {
         players = playersData;
     }
 }
+//#endregion
