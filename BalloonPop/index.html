@@ -57,28 +57,28 @@
             </div>
           </div>
         </div>
-        
-        <div>
-          <button onClick="changePlayer()">Change Player</button>
-        </div>
-        <div>
-          <button id="start-button" onclick="startGame()">Start Game</button>
+
+        <div class="d-flex space-around mt-2">
+            <button onClick="changePlayer()" class="btn-dark bg-dark-lighten">Change Player</button>
+            <button id="start-button" onclick="startGame()">Start Game</button>
         </div>
 
-        <button id="inflate-button" onclick="inflate()" disabled="true">
-          Inflate <span id="click-count">0</span>
-        </button>
+        <div class="hidden">
+          <button id="inflate-button" onclick="inflate()" disabled="true">
+            Inflate <span id="click-count">0</span>
+          </button>
 
-        <div>
-          <span>Balloons Popped: </span>
-          <span id="pop-count">0</span>
-        </div>
-        <div>
-          <span>Time Remaining: </span>
-          <span id="countdown">0</span>
-        </div>
+          <div>
+            <span>Balloons Popped: </span>
+            <span id="pop-count">0</span>
+          </div>
+          <div>
+            <span>Time Remaining: </span>
+            <span id="countdown">0</span>
+          </div>
 
-        <div id="balloon" class="balloon"></div>
+          <div id="balloon" class="balloon"></div>
+        </div>
       </section>
     </main>
 
