@@ -14,6 +14,14 @@
 
 <body>
 
+    <form onsubmit="setPlayer(event)">
+        <div>
+            <label for="name">Player Name: </label>
+            <input type="text" name="playerName" required>
+        </div>
+        <button type="submit">Ok</button>
+    </form>
+
     <header>
         <div class="container shadow text-center">
             <img src="balloon-pop-logo.png" alt="balloon pop logo">
@@ -29,6 +37,10 @@
     <div>
         <span>Balloons Popped: </span>
         <span id="pop-count">0</span>
+    </div>
+    <div>
+        <span>Top Popped: </span>
+        <span id="high-pop-count">0</span>
     </div>
     <div>
         <span>Time Remaining: </span>
