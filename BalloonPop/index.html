@@ -26,11 +26,10 @@
     </header>
 
     <main class="card container shadow">
-      <!-- TODO Remove hidden class -->
       <form
         onsubmit="setPlayer(event)"
         id="playerForm"
-        class="d-flex space-between hidden"
+        class="d-flex space-between"
       >
         <div>
           <label for="name">
@@ -42,9 +41,7 @@
         <button type="submit">Ok</button>
       </form>
 
-      <!-- TODO Re-add hidden class -->
-
-      <section id="game" class="game">
+      <section id="game" class="game hidden">
         <div class="card container shadow bg-dark text-light">
           <div class="d-flex space-between">
             <div>
@@ -66,8 +63,7 @@
           <button id="start-button" onclick="startGame()">Start Game</button>
         </div>
 
-        <!-- TODO Re-add hidden class -->
-        <div id="game-controls">
+        <div id="game-controls" class="hidden">
           <div>
             <span>Balloons Popped: </span>
             <span id="pop-count">0</span>
@@ -86,6 +82,7 @@
             </div>
 
             <div id="balloon" class="balloon"></div>
+            <audio src="burst.mp3" id="pop-sound"></audio>
           </div>
 
         </div>

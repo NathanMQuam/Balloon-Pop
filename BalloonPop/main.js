@@ -8,7 +8,7 @@ let inflationRate = 20;
 let maxSize = 340;
 let highestPopCount = 0;
 let currentPopCount = 0;
-let gameLength = 5000;
+let gameLength = 10000;
 let clockId = 0;
 let timeRemaining = 0;
 let currentPlayer = {};
@@ -23,7 +23,7 @@ function startGame () {
     document.getElementById( "game-controls" ).classList.remove( "hidden" );
     document.getElementById( "main-controls" ).classList.add( "hidden" );
     startClock();
-    setTimeout(stopGame, gameLength );
+    setTimeout( stopGame, gameLength );
 }
 
 
@@ -64,7 +64,9 @@ function checkBalloonPop () {
         width = 20;
 
         let balloonElement = document.getElementById( "balloon" );
-        
+        // @ts-ignore
+        document.getElementById( "pop-sound" ).play();
+
         balloonElement.classList.remove( currentColor );
         getRandomColor();
         balloonElement.classList.add( currentColor );
@@ -84,10 +86,10 @@ function draw () {
     let popCountElem = document.getElementById( "pop-count" );
     let highPopCountElem = document.getElementById( "high-pop-count" );
     let playerNameElem = document.getElementById( "player-name" );
-    
+
     balloonElement.style.height = height + "px";
     balloonElement.style.width = width + "px";
-    
+
     clickCountElem.innerText = clickCount.toString();
     popCountElem.innerText = currentPopCount.toString();
     highPopCountElem.innerText = currentPlayer.topScore;
@@ -111,7 +113,7 @@ function stopGame () {
         currentPlayer.topScore = currentPopCount;
         savePlayers();
     }
-    
+
     currentPopCount = 0;
 
     stopClock();
@@ -132,7 +134,7 @@ let players = [
 ];
 loadPlayers();
 
-function setPlayer (event) {
+function setPlayer ( event ) {
     event.preventDefault();
     let form = event.target;
 
@@ -144,7 +146,7 @@ function setPlayer (event) {
         currentPlayer = { name: playerName, topScore: 0 };
         players.push( currentPlayer );
         //console.log( "Player not found" );
-        
+
         savePlayers();
     }
 
@@ -169,7 +171,7 @@ function savePlayers () {
 
 function loadPlayers () {
     let playersData = JSON.parse( window.localStorage.getItem( "players" ) );
-    
+
     if ( playersData ) {
         players = playersData;
     }
