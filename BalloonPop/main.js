@@ -22,6 +22,7 @@ let possibleColors = ["red", "green", "blue", "orange", "magenta"];
 function startGame () {
     document.getElementById( "game-controls" ).classList.remove( "hidden" );
     document.getElementById( "main-controls" ).classList.add( "hidden" );
+    document.getElementById( "scoreboard" ).classList.add( "hidden" );
     startClock();
     setTimeout( stopGame, gameLength );
 }
@@ -104,6 +105,7 @@ function stopGame () {
 
     document.getElementById( "game-controls" ).classList.add( "hidden" );
     document.getElementById( "main-controls" ).classList.remove( "hidden" );
+    document.getElementById( "scoreboard" ).classList.remove( "hidden" );
 
     clickCount = 0;
     height = 140;
