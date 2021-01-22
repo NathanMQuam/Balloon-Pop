@@ -236,6 +236,10 @@ input {
     margin-bottom: 1em;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .hidden {
     display: none !important;
 }
