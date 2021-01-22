@@ -13,6 +13,10 @@ let clockId = 0;
 let timeRemaining = 0;
 let currentPlayer = {};
 
+// Balloon Colors
+let currentColor = "red";
+let possibleColors = ["red", "green", "blue", "orange", "magenta"];
+
 
 
 function startGame () {
@@ -47,14 +51,29 @@ function inflate () {
 
     height += inflationRate;
     width += inflationRate;
-    
+    checkBalloonPop();
+
+    draw();
+}
+
+function checkBalloonPop () {
     if ( height >= maxSize ) {
         console.log( "Balloon popped!" );
         currentPopCount++;
         height = 40;
         width = 20;
+
+        let balloonElement = document.getElementById( "balloon" );
+        
+        balloonElement.classList.remove( currentColor );
+        getRandomColor();
+        balloonElement.classList.add( currentColor );
     }
-    draw();
+}
+
+function getRandomColor () {
+    let i = Math.floor( Math.random() * possibleColors.length );
+    currentColor = possibleColors[i];
 }
 
 
@@ -71,7 +90,7 @@ function draw () {
     
     clickCountElem.innerText = clickCount.toString();
     popCountElem.innerText = currentPopCount.toString();
-    highPopCountElem.innerText = currentPlayer.topScore.toString();
+    highPopCountElem.innerText = currentPlayer.topScore;
 
     playerNameElem.innerText = currentPlayer.name;
 }
